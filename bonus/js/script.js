@@ -70,8 +70,32 @@ var app = new Vue(
             thumbClick(elementIndex) {
                 this.currentActiveElement = elementIndex;
 
+            },
+
+            // Incremento l'indice dei thumb in corrispondeza della lunghezza del array 
+            // Una volta arrivato alla lunghezza del array lo faccio ripartire da capo
+            increaseCounter() {
+                if (this.currentActiveElement < this.slides.length -1) {
+                    this.currentActiveElement++; 
+                    
+                }else{
+                    this.currentActiveElement = 0
+
+                }
+                
+            },
+
+            // Setto a 3s ogni thumb
+            startAutoPlay(){
+                setInterval(this.increaseCounter, 3000)
             }
 
+
+        },
+
+        // Parte l'autoplay ad inizio pagina 
+        mounted() {
+            this.startAutoPlay()
 
         }
        
