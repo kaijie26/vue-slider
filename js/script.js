@@ -38,9 +38,19 @@ var app = new Vue(
                 }
             ],
 
-
+            currentActiveElement: 0,
 
         },
+
+        methods: {
+            showNextElement() {
+
+
+            },
+            showPrevElement() {
+
+            },
+        }
 
        
     }
