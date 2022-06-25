@@ -35,7 +35,7 @@
                         <div @click="showNextElement()" class="next"></div>
 
                         <!-- Single thumb -->
-                        <div @click="thumbClick(index)" v-for="(image, index in slides" class="thumb" :class="{ 'active': index === currentActiveElement } ">
+                        <div @mouseenter="stopAutoPlay()" @mouseleave="startAutoPlay()" @click="thumbClick(index)" v-for="(image, index in slides" class="thumb" :class="{ 'active': index === currentActiveElement } ">
                             <img :src="slides[index].image" :alt="slides[index].title"/>
                         </div>
                         

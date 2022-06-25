@@ -39,6 +39,7 @@ var app = new Vue(
             ],
 
             currentActiveElement: 0,
+            autoPlayClock: null,
 
         },
 
@@ -79,15 +80,22 @@ var app = new Vue(
                     this.currentActiveElement++; 
                     
                 }else{
-                    this.currentActiveElement = 0
+                    this.currentActiveElement = 0;
 
                 }
                 
             },
 
             // Setto a 3s ogni thumb
+              // L'autoplay parte normalmente se non c'è il cursore sopra le thumb 
             startAutoPlay(){
-                setInterval(this.increaseCounter, 3000)
+               this.autoPlayClock = setInterval(this.increaseCounter, 3000);
+            },
+
+            // Stoppo l'autoplay quando l'utente ci passa sopra con il mouse
+            stopAutoPlay(){
+                clearInterval(this.autoPlayClock);
+                this.autoplayClock = null;
             }
 
 
@@ -97,7 +105,7 @@ var app = new Vue(
         mounted() {
             this.startAutoPlay()
 
-        }
+        },
        
     }
 )
