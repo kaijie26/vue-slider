@@ -43,15 +43,29 @@ var app = new Vue(
         },
 
         methods: {
+            // Funzione che mostra l'elemento dopo
             showNextElement() {
+                if (this.currentActiveElement < this.slides.length -1 ) {
+                    this.currentActiveElement++;
+                
+                }else{
+                    this.currentActiveElement = 0;
+                }
 
 
             },
+            // Funzione che mostra l'elemento precendente
             showPrevElement() {
+                if(this.currentActiveElement > 0) {
+                    this.currentActiveElement--;
+                    
+                }else{
+                    this.currentActiveElement = 0;
+
+                }
 
             },
         }
-
        
     }
 )
